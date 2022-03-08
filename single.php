@@ -30,7 +30,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="post-title">
-                        <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>
+                    <a href="<?php echo home_url(); ?>">Home</a>
+                    </h2>
+                </div>
+            
+                <div class="col-md-12">
+                    <h2 class="post-title">
+                        <?php the_title() ?>
                     </h2>
                 </div>
             </div>
@@ -42,11 +48,6 @@
                     </p>
                     <div class="tags">
                         <?php echo get_the_tag_list("<ul class=\"list-unstyled\"><li>", "</li><li>", "</li></ul>") ?>
-                        <!-- <ul class="list-unstyled">
-                            <li>weather</li>
-                            <li>blog</li>
-                            <li>dhaka</li>
-                        </ul> -->
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -62,7 +63,7 @@
 
                     <p>
                         <?php
-                         the_excerpt();
+                         the_content()
                         ?>
                     </p>
                     
