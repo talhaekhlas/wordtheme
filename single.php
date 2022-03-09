@@ -78,10 +78,25 @@
             <div class="col-md-4"></div>
             <div class="col-md-8">
                 <?php the_posts_pagination(array('screen_reader_text'=>' ','mid_size'=>1)); ?>
-                pagination not working
+                
                 <!-- why not working -->
             </div>
         </div>
+
+        <?php if(comments_open()){?>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <?php
+                 comments_template();
+                ?>
+                
+                <!-- why not working -->
+            </div>
+        </div>
+
+        <?php } ?>
     </div>
 </div>
 
