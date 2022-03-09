@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <?php wp_head(); ?>
-</head>
-<body <?php body_class() ?>>
+<?php get_header(); ?>
+<?php get_template_part('hero') ?>
 <div class="header">
     <div class="container">
         <div class="row">
@@ -93,6 +88,4 @@
         </div>
     </div>
 </div>
-<?php wp_footer(); ?>
-</body>
-</html>
+<?php get_footer(); ?> 

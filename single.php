@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <?php wp_head(); ?>
-</head>
-<body <?php body_class() ?>>
-<div class="header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="tagline">
-                    <?php bloginfo( 'description' ); ?>
-                </h3>
-                <h1 class="align-self-center display-1 text-center heading">
-                <?php bloginfo( 'name' ); ?>
-                </h1>
-            </div>
-        </div>
-    </div>
-</div>
+
+<?php get_header(); ?>
+<?php get_template_part('hero') ?>
 <div class="posts">
     <?php while(have_posts()) {
 
@@ -28,11 +10,7 @@
     <div class="post" <?php post_class(); ?>>
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h2 class="post-title">
-                    <a href="<?php echo home_url(); ?>">Home</a>
-                    </h2>
-                </div>
+                
             
                 <div class="col-md-12">
                     <h2 class="post-title">
@@ -74,14 +52,31 @@
     </div>
     <?php } ?>
     <div class="container">
+
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+            <?php 
+            if ( is_active_sidebar( 'single-post-left-widget' ) ) 
+            { ?>
+                <?php dynamic_sidebar( 'single-post-left-widget' ); ?>
+            </div>
+            <?php } ?>
+        </div>
+
+    
+       
+
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-8">
                 <?php the_posts_pagination(array('screen_reader_text'=>' ','mid_size'=>1)); ?>
-                
-                <!-- why not working -->
+               
             </div>
         </div>
+
+        
 
         <?php if(comments_open()){?>
 
@@ -91,12 +86,24 @@
                 <?php
                  comments_template();
                 ?>
-                
-                <!-- why not working -->
+               
             </div>
         </div>
 
+       
+
         <?php } ?>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <?php
+                 previous_post_link();
+                 next_post_link();
+                ?>
+               
+            </div>
+        </div>
     </div>
 </div>
 
@@ -109,6 +116,4 @@
         </div>
     </div>
 </div>
-<?php wp_footer(); ?>
-</body>
-</html>
+<?php get_footer(); ?>
