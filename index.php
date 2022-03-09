@@ -1,23 +1,10 @@
 <?php get_header(); ?>
 <?php get_template_part('hero') ?>
-<div class="header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="tagline">
-                    <?php bloginfo( 'description' ); ?>
-                </h3>
-                <h1 class="align-self-center display-1 text-center heading">
-                <?php bloginfo( 'name' ); ?>
-                </h1>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="posts">
     <?php while(have_posts()) {
 
         the_post();
+        
         
         ?>
     <div class="post" <?php post_class(); ?>>
@@ -57,7 +44,13 @@
 
                     <p>
                         <?php
-                         the_excerpt();
+                        if(post_password_required()){
+                            echo get_the_password_form();
+                        }else{
+                            the_excerpt();
+                        }
+                        
+                        
                         ?>
                     </p>
                     
@@ -72,7 +65,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-8">
                 <?php the_posts_pagination(array('screen_reader_text'=>' ','mid_size'=>1)); ?>
-                pagination not working
+                
                 <!-- why not working -->
             </div>
         </div>

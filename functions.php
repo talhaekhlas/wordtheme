@@ -7,6 +7,17 @@ function ekhlas_bootstraping(){
   load_theme_textdomain( 'ekhlas');
   add_theme_support( 'post-thumbnails' ); // for using thumbnails
   add_theme_support( 'title-tags' );//title tag er support
+
+  register_nav_menus(
+    array(
+      "topmenu"=>"Top Menu",
+      "topmenu1"=>"Top Menu1",
+      "topmenu2"=>"Top Menu2",
+      "topmenu3"=>"Top Menu3",
+      "topmenu4"=>"Top Menu4"
+    )  
+  );
+
 }
 
 add_action( 'after_setup_theme', 'ekhlas_bootstraping' );
@@ -33,6 +44,12 @@ function register_custom_widget_area() {
   );
   }
   add_action( 'widgets_init', 'register_custom_widget_area' );
+
+
+ function ekhlas_protect_title_change(){
+   return "%s";
+ }
+  add_filter( 'protected_title_format', 'ekhlas_protect_title_change' )
 
 
 ?>
