@@ -1,3 +1,9 @@
+<?php
+/*
+ * Template Name: About Page Template
+ * description:  About Page Template Description
+ */
+?>
 <?php get_header(); ?>
 <?php get_template_part('hero') ?>
 <div class="posts">
@@ -43,8 +49,7 @@
 
                         <p>
                             <?php
-                            the_content();
-                            wp_link_pages();
+                            the_content()
                             ?>
                         </p>
 
