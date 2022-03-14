@@ -81,3 +81,7 @@ h2.post-title {
     width: 120px;
     border-radius: 60px;
 }
+
+.search-result{
+    background: red;
+}

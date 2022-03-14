@@ -16,4 +16,23 @@
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <?php 
+                    if(is_search()){?>
+                        <h3>You are searching for: <?php the_search_query()?> </h3>;
+                    <?php }
+                   
+                ?>
+                <?php
+                 echo get_search_form();
+                 if(is_search() && !have_posts()){
+                    echo "<h6>No Result Found: </h6>";  
+                }
+                  ?>
+            </div>
+        </div>
+    </div>
 </div>

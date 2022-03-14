@@ -20,6 +20,7 @@ function ekhlas_bootstraping(){
    );//header image support er support
   add_theme_support( 'custom-logo', ['height'=> 100, 'width'=> '100'] );
   add_theme_support( 'custom-background' );
+  add_theme_support( 'html5', array( 'search-form' ) );
 
 
 
@@ -102,6 +103,22 @@ function register_custom_widget_area() {
   }
 
   add_action('wp_head', 'ekhlas_head_activity');
+
+
+  function search_result_highlight($text){
+    if(is_search()){
+      $pattern = '/('.join('|', explode(' ', get_search_query())).')/i';
+      $text = preg_replace($pattern, '<span class="search-result">\0</span>',$text);
+      return $text;
+    }
+
+    return $text;
+    
+
+  }
+  add_filter('the_content','search_result_highlight');
+  add_filter('the_excert','search_result_highlight');
+  add_filter('the_title','search_result_highlight');
 
 
 ?>

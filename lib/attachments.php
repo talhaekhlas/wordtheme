@@ -36,7 +36,7 @@ function my_attachments_testimonial($attachments)
         'type' => 'text',
         'label' => __('Name', 'ekhlas')
         ),
-        array('name' => 'Position',
+        array('name' => 'position',
         'type' => 'text',
         'label' => __('Position', 'ekhlas')
         ),
