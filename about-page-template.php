@@ -23,6 +23,43 @@
                         </h2>
                     </div>
                 </div>
+
+                <?php 
+
+                if(class_exists('Attachments')){?>
+
+
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        
+                        <div class="testimonial text-center">
+                            <?php
+
+                            $attachments = new Attachments('testimonial');
+                            
+                            if($attachments->exist()){
+                                
+                                while($attachment = $attachments->get()){ ?>
+                                <div>
+                                <?php echo $attachments->image('thumbnail'); ?>
+                                <h3><?php echo 'Name: '.$attachments->field('name'); ?></h3>
+                                <h4><?php echo 'Position: '.$attachments->field('position'); ?></h4>
+                                <h5><?php echo 'Company: '.$attachments->field('company'); ?></h5>
+                                <p><?php echo $attachments->field('description'); ?></p>
+                                </div>
+                                
+
+                                <?php }
+                            }
+                            
+                            ?>
+                        </div>
+                    </div>
+                </div>
+
+                <?php } ?>
+
+
                 <div class="row">
                     <div class="col-md-4">
                         <p>

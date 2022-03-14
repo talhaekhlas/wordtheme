@@ -1,7 +1,10 @@
 <?php
-// function doUpperCase($data){
-//   echo strtoupper($data);
-// }
+if(class_exists('Attachments')){
+  
+  require_once 'lib/attachments.php';
+
+}
+
 
 function ekhlas_bootstraping(){
   load_theme_textdomain( 'ekhlas');
@@ -36,11 +39,16 @@ add_action( 'after_setup_theme', 'ekhlas_bootstraping' );
 
 function ekhlas_assets()
 {
+    
+    wp_enqueue_style( 'tns-style','//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css' );
     wp_enqueue_style( 'ekhlas', get_stylesheet_uri() );
     wp_enqueue_style( 'bootstrap','//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' );
     wp_enqueue_style( 'featherlight-css','//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css' );
+
+    
+    wp_enqueue_script( 'tns-js','//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js',null,'0.0.1',true );
     wp_enqueue_script( 'featherlight-js','//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js',['jquery'],'0.0.1',true );
-    wp_enqueue_script( 'customjs',get_template_directory_uri().'/assets/js/custom.js',null,'0.0.1',true );
+    wp_enqueue_script( 'customjs',get_template_directory_uri().'/assets/js/custom.js',null,time(),true );
 }
 add_action( 'wp_enqueue_scripts', 'ekhlas_assets' );
 
